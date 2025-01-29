@@ -29,7 +29,7 @@ const Landing = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // fetchUrls();
+    fetchUrls();
   }, []);
 
   const fetchUrls = async () => {
@@ -38,7 +38,7 @@ const Landing = () => {
         withCredentials: true
       });
       console.log(response,"response fetchurl")
-      setShortenedUrls(response.data);
+      setShortenedUrls(response.data?.urls);
     } catch (error) {
       if (error.response?.status === 401) {
         navigate('/login');
