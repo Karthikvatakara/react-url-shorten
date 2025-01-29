@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import Login from './components/Auth/Login'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Signup from './components/Auth/Signup'
 import Landing from './components/Landing/Landing';
-import ProtectedRoute from './components/protectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 import PublicRoute from './components/PublicRoute';
 
