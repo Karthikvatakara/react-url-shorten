@@ -17,8 +17,10 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../../constants';
+import { useAuth } from '../../context/AuthContext';
 
 const Landing = () => {
+  const { setIsAuthenticated } = useAuth();
   const [url, setUrl] = useState('');
   const [shortenedUrls, setShortenedUrls] = useState([]);
   const [error, setError] = useState('');
@@ -101,6 +103,7 @@ const Landing = () => {
   const handleLogout = async () => {
     try {
       await axios.post(`${API}/auth/logout`, {}, { withCredentials: true });
+      setIsAuthenticated(false);
       navigate('/login');
     } catch (error) {
       setError('Error logging out');

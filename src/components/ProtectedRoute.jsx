@@ -1,5 +1,5 @@
 import React from "react"
-// import { useAuth } from "../hooks/useAuth"
+import LoadingSpinner from "./Loading/LoadingSpinner"
 import { useAuth } from "../context/AuthContext"
 import { Navigate } from "react-router-dom"
 
@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
     console.log(isAuthenticated,"PROTECTED ROUTE")
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <LoadingSpinner/>
     }
     if(!isAuthenticated){
         return <Navigate to='/login'/>

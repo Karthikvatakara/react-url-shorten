@@ -1,11 +1,12 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"
+import LoadingSpinner from "./Loading/LoadingSpinner";
 
 const PublicRoute = ({ children }) => {
     const { isAuthenticated, isLoading } = useAuth();
 
     if(isLoading){
-        return <div>Loading</div>
+        return <LoadingSpinner/>
     }
 
     if(isAuthenticated){
